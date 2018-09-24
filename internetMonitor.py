@@ -2,7 +2,6 @@
 ####################################
 # File name: internetMonitor.py    #
 # Author: Marutpong Chailangka     #
-# Date created: Dec 16, 2016       #
 # Python Version: 2.7              #
 ####################################
 

@@ -41,7 +41,7 @@ class InternetMonitor(Thread):
         GPIO.setup(self.ledpin_status_off, GPIO.OUT) # LED pin set as output
 
     def turn_led_status_on(self):
-        print "Status \t connected"
+        print "Inet \t Status connected"
         if is_gpio_imported is False:
             return
         GPIO.output(self.ledpin_status_off, GPIO.LOW)
@@ -49,7 +49,7 @@ class InternetMonitor(Thread):
     
 
     def turn_led_status_off(self):
-        print "Status \t not connected"
+        print "Inet \t Status not connected"
         if is_gpio_imported is False:
             return
         GPIO.output(self.ledpin_status_off, GPIO.HIGH)
@@ -77,7 +77,7 @@ class InternetMonitor(Thread):
             try:
                 self.is_online = self.is_internet_on()
             except:
-                print "----------- Error -------------"
+                print "Inet \t ----------- Error -------------"
                 self.turn_all_led_off()
                 GPIO.cleanup() # cleanup all GPIO
                 continue
@@ -88,4 +88,4 @@ class InternetMonitor(Thread):
                 self.turn_led_status_off()
 
 if __name__ == '__main__':
-    internet_checking = InternetMonitor()
+    internet_checking_ins = InternetMonitor()

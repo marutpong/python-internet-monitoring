@@ -35,7 +35,10 @@ class InternetMonitor(Thread):
         if is_gpio_imported is False:
             return
         # Pin Setup:
-        GPIO.cleanup() # cleanup all GPIO
+        try:
+            GPIO.cleanup() # cleanup all GPIO
+        except:
+            pass
         GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
         GPIO.setup(self.ledpin_status_on, GPIO.OUT) # LED pin set as output
         GPIO.setup(self.ledpin_status_off, GPIO.OUT) # LED pin set as output
@@ -79,7 +82,10 @@ class InternetMonitor(Thread):
             except:
                 print "Inet \t ----------- Error -------------"
                 self.turn_all_led_off()
-                GPIO.cleanup() # cleanup all GPIO
+                try:
+                    GPIO.cleanup() # cleanup all GPIO
+                except:
+                    pass
                 continue
 
             if self.is_online:
